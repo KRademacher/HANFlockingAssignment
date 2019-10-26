@@ -1,0 +1,40 @@
+//Pseudocode for the three classes Agent, World en AgentConfig
+//Code is simple and straightforward. Feel free to apply more logical variablenames etc.
+//In this project tradeoffs will be made in memory- and time efficiency. Main goal is to
+//discover and examine flocking principles.
+// Feel free to optimize if needed.
+
+class Agent{
+
+	Vector x			// position vector2 or vector3
+	Vector rot			// rotation vector or quaternion
+	Vector v			// velocity
+	Vector a			// acceleration
+	World world			// world reference
+	
+	void update(float t)		// update with time parameter
+	void render()			// render the update
+	
+	Vector cohesion()	// cohesion behavior
+	Vector separation()	// separation behaviour
+	Vector alignment()	// alignment behaviour
+	Vector combine()	// combine behaviours
+}
+
+class World{
+
+	List<Agent> agents	// all agents in the flock
+	
+	void init(int n)
+	void update(float t)
+	List<Agent> getNeighbors(Agent agent, float radius)	// neighbors of agent inside radius	
+}
+
+class AgentConfig{
+
+	float maxV		// maximum velocity
+	float maxA		// maximum acceleration
+	
+	float Rc, Rs, Ra	// Radius Cohesion (Rc), Radius Separation (Rs) and Radius Alignment (Ra)
+	float Kc, Ks, Ka	// Forces of the three rules (coëfficients)
+}
